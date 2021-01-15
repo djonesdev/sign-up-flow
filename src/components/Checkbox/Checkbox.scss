@@ -1,0 +1,16 @@
+.c-checkbox {
+    &__container {
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &__box {
+        border: 1px solid #6F6F6F;
+        box-sizing: border-box;
+        border-radius: 4px;
+      }
+    &__label {
+        
+    }
+}

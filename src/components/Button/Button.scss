@@ -1,0 +1,21 @@
+.c-button {
+    height: 53px;
+    width: 188px;
+    border: 0;
+    border-radius: 29.3px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 18px;
+    color: white;
+    &__primary {
+        background: #FECC33;
+    }
+    &__secondary {
+        background: #FF5558;
+    }
+    &__is-disabled {
+        background: lightgray
+    }
+}

@@ -1,7 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 
-function App() {
+import logo from './logo.svg';
+import './App.scss';
+import { registerUser } from './redux/actions';
+
+function App(props) {
+  const [formState, setFormState] = useState({firstName: '', surname: '', dob: '', gender: '', email: ''})
+
+  useEffect(() => {
+    console.log(props.value, 'props log')
+  }, [props.value])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,11 +25,21 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with me
         </a>
+        <button onClick={props.registerUser}>press here for redux test</button>
+        <button onClick={() => console.log(formState)}>Log State</button>
       </header>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  value: state
+})
+
+const mapDispatchToProps = dispatch => ({
+  registerUser: () => dispatch(registerUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

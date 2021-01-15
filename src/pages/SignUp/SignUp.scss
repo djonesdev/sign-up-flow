@@ -1,0 +1,35 @@
+.c-sign-up-form {
+  background-image: url("../../assets/backgrounds/unaroBackground.png");
+  background-color: yellow;
+  padding: 20px;
+  &__logo {
+    width: 70%;
+    align-self: center;
+  }
+  &__subtitle {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    color: #ea5454;
+    justify-content: center;
+    display: flex;
+  }
+  &__checkbox-container {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+  }
+  &__nomination-container {
+    margin: 24px;
+  }
+  &__button-container {
+    display: flex;
+    justify-content: center;
+  }
+}
