@@ -7,7 +7,7 @@ import ConfirmationTick from "../../assets/icons/ConfirmationTick.png";
 import "./Confirmation.scss";
 import Button from "../../components/Button/Button";
 
-function Confirmation() {
+function Confirmation({ onPressContinue }) {
   return (
     <div className="c-confirmation">
       <Card>
@@ -30,7 +30,7 @@ function Confirmation() {
           <Button
             type="secondary"
             label="Homepage"
-            onClick={() => console.log("going to homepage")}
+            onClick={onPressContinue}
           />
         </div>
       </Card>

@@ -1,6 +1,8 @@
 .c-sign-up-form {
   background-image: url("../../assets/backgrounds/unaroBackground.png");
   background-color: yellow;
+  display: flex;
+  justify-content: center;
   padding: 20px;
   &__logo {
     width: 70%;

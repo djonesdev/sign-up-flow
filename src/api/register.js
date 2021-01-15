@@ -4,13 +4,41 @@ import { config } from "../config";
 
 export const registerApi = {
   register: userDetails => {
+    const {
+      firstName,
+      surname,
+      dob,
+      gender,
+      email,
+    } = userDetails.payload
     return axios({
       url: `${config.baseUrl}/contact/register`,
       method: "POST",
       headers: {'api_key': `${config.apiKey}`},
-      data: userDetails,
+      data: {
+        firstName,
+        surname,
+        dob,
+        gender,
+        email,
+        organisationId: config.organisationId
+      },
     });
   },
+  authenticateUser: () => {
+    axios({
+      url: `${config.baseUrl}/user/authenticate`, 
+      method: 'GET',
+      headers: {'api_key': `${config.apiKey}`},
+    })
+  }, 
+  getOptInUsers: () => {
+    axios({
+      url: `${config.baseUrl}/user/authenticate`, 
+      method: 'GET',
+      headers: {'api_key': `${config.apiKey}`},
+    })
+  }
 };
 
 // {
