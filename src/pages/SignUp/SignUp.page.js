@@ -13,12 +13,8 @@ function SignUpContainer({ registerUser }) {
     dob: "",
     gender: "",
     email: "",
-    optIn: false
+    trackAndTrace: false
   });
-
-  useEffect(() => {
-    console.log(formState, "formState")
-  })
 
   const handleInputChange = (inputName, e) => {
     setFormState({ ...formState, [inputName]: e.target.value });
@@ -26,7 +22,7 @@ function SignUpContainer({ registerUser }) {
   };
 
   const onClickCheckbox = isOptedIn => {
-    setFormState({...formState, optIn: isOptedIn})
+    setFormState({...formState, trackAndTrace: isOptedIn})
   }
 
   const submitForm = () => {

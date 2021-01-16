@@ -17,7 +17,7 @@ export function* register(payload) {
     yield put(push("/Confirmation"));
   } catch (error) {
     yield put({ type: registerUserFailureType, payload: error });
-    yield put(push("/Confirmation"));
+    yield put(push("/SignUpError"));
     console.error(error);
   }
 }

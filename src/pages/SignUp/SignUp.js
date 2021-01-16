@@ -50,12 +50,12 @@ function SignUp({ onClickCheckbox, submitForm, formState, handleInputChange }) {
             <Checkbox
               label="Yes"
               onChange={() => onClickCheckbox(true)}
-              checked={formState.optIn}
+              checked={formState.trackAndTrace}
             />
             <Checkbox
               label="No"
               onChange={() => onClickCheckbox(false)}
-              checked={!formState.optIn}
+              checked={!formState.trackAndTrace}
             />
           </div>
         </div>

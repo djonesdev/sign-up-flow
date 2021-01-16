@@ -10,6 +10,7 @@ export const registerApi = {
       dob,
       gender,
       email,
+      trackAndTrace
     } = userDetails.payload
     return axios({
       url: `${config.baseUrl}/contact/register`,
@@ -21,6 +22,7 @@ export const registerApi = {
         dob,
         gender,
         email,
+        trackAndTrace,
         organisationId: config.organisationId
       },
     });
