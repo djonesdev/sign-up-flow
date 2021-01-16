@@ -35,7 +35,8 @@ export function* authenticateUser() {
 
 export function* getUserList() {
   try {
-
+    const result = yield registerApi.getOptInUsers()
+    console.log(result, 'get user list results')
   } catch (error) {
     console.error(error)
   }

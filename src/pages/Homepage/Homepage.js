@@ -5,8 +5,6 @@ import "./Homepage.scss"
 
 function Homepage() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const isPortrait = useMediaQuery({ orientation: "portrait" });
   return (
     <div>
       <h3>Customers that have registered for Pharmacy opt-in</h3>

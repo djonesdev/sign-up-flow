@@ -9,7 +9,7 @@ import Checkbox from "../../components/Checkbox/Checkbox";
 import DateInput from "../../components/Inputs/DateInput";
 import Button from "../../components/Button/Button";
 
-function SignUp({ submitForm, formState, handleInputChange }) {
+function SignUp({ onClickCheckbox, submitForm, formState, handleInputChange }) {
   return (
     <div className="c-sign-up-form">
       <Card>
@@ -49,15 +49,13 @@ function SignUp({ submitForm, formState, handleInputChange }) {
           <div className="c-sign-up-form__checkbox-container">
             <Checkbox
               label="Yes"
-              onChange={() => console.log("check box clicked")}
-              value={true}
-              checked={true}
+              onChange={() => onClickCheckbox(true)}
+              checked={formState.optIn}
             />
             <Checkbox
               label="No"
-              onChange={() => console.log("check box clicked")}
-              value={true}
-              checked={true}
+              onChange={() => onClickCheckbox(false)}
+              checked={!formState.optIn}
             />
           </div>
         </div>

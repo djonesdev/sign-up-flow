@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -13,12 +13,21 @@ function SignUpContainer({ registerUser }) {
     dob: "",
     gender: "",
     email: "",
+    optIn: false
   });
+
+  useEffect(() => {
+    console.log(formState, "formState")
+  })
 
   const handleInputChange = (inputName, e) => {
     setFormState({ ...formState, [inputName]: e.target.value });
     e.preventDefault();
   };
+
+  const onClickCheckbox = isOptedIn => {
+    setFormState({...formState, optIn: isOptedIn})
+  }
 
   const submitForm = () => {
     registerUser(formState);
@@ -30,6 +39,7 @@ function SignUpContainer({ registerUser }) {
       submitForm={submitForm}
       formState={formState}
       handleInputChange={handleInputChange}
+      onClickCheckbox={onClickCheckbox}
     />
   );
 }
