@@ -3,19 +3,19 @@ import axios from "axios";
 import { config } from "../config";
 
 export const registerApi = {
-  register: userDetails => {
+  register: (userDetails) => {
     const {
       firstName,
       surname,
       dob,
       gender,
       email,
-      trackAndTrace
-    } = userDetails.payload
+      trackAndTrace,
+    } = userDetails.payload;
     return axios({
       url: `${config.baseUrl}/contact/register`,
       method: "POST",
-      headers: {'api_key': `${config.apiKey}`},
+      headers: { api_key: `${config.apiKey}` },
       data: {
         firstName,
         surname,
@@ -23,35 +23,26 @@ export const registerApi = {
         gender,
         email,
         trackAndTrace,
-        organisationId: config.organisationId
+        organisationId: config.organisationId,
       },
     });
   },
-  authenticateUser: () => {
+  authenticateUser: (userName) => {
     axios({
-      url: `${config.baseUrl}/user/authenticate`, 
-      method: 'GET',
-      headers: {'api_key': `${config.apiKey}`},
-    })
-  }, 
-  getOptInUsers: () => {
+      url: `${config.baseUrl}/user/authenticate`,
+      method: "POST",
+      headers: { api_key: `${config.apiKey}` },
+      data: { name: "callum@gmail.com", password: "password123" },
+    });
+  },
+  getOptInUsers: (externalId, token) => {
     axios({
-      url: `${config.baseUrl}/user/authenticate`, 
-      method: 'GET',
-      headers: {'api_key': `${config.apiKey}`},
-    })
-  }
+      url: `${config.baseUrl}/organisations/${externalId}/contacts?size=16&page=0&name=&type=&sort=forename`,
+      method: "GET",
+      headers: {
+        api_key: `${config.apiKey}`,
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
 };
-
-// {
-//   title: "Mr.",
-//   gender: "male",
-//   registrationType: "EMAIL",
-//   forename: "Jacky",
-//   surname: "Jim",
-//   phones: [{ phoneNumber: "07439392912" }],
-//   email: "suciuandrei94+jacky@gmail.com",
-//   contactType: "PERSON",
-//   organisationId: "355d3529-a6c1-470b-983a-845b604a3976",
-//   trackAndTrace: true,
-// }

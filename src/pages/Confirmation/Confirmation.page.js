@@ -1,30 +1,36 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { autheticateUser } from "../../redux/actions";
+import { selectUserInfo } from "../../redux/selectors";
 
-import Confirmation from './Confirmation'
+import Confirmation from "./Confirmation";
 
-export const ConfirmationContainer = (props) => {
-    const history = useHistory()
+export const ConfirmationContainer = ({ isAuthenticated, autheticateUser }) => {
+  const history = useHistory();
 
-    useEffect(() => {
-        console.log(props.state, 'redux state')
-    })
+  useEffect(() => {
+    // if(isAuthenticated) {
+        autheticateUser()
+    // }
+  }, [autheticateUser]);
 
-    const onPressContinue = () => {
-        console.log(props.state, "state")
-        history.push('/Homepage')
-    }
+  const onPressContinue = () => {
+    history.push("/Homepage");
+  };
 
-    return <Confirmation onPressContinue={onPressContinue} />
-}
+  return <Confirmation onPressContinue={onPressContinue} />;
+};
 
 const mapStateToProps = (state) => ({
-    state
-})
+  isAuthenticated: selectUserInfo(state),
+});
 
-const mapDispatchToProps = {
-    
-}
+const mapDispatchToProps = (dispatch) => ({
+  autheticateUser: () => dispatch(autheticateUser()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConfirmationContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ConfirmationContainer);

@@ -45,11 +45,11 @@ function SignUpContainer({ registerUser }) {
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   value: state,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   registerUser: payload => dispatch(registerUser(payload)),
 });
 
