@@ -8,8 +8,15 @@ import "./SignUp.scss";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import DateInput from "../../components/Inputs/DateInput";
 import Button from "../../components/Button/Button";
+import InputWithSelect from "../../components/Inputs/InputWithSelect";
 
-function SignUp({ onClickCheckbox, submitForm, formState, handleInputChange }) {
+function SignUp({
+  onClickCheckbox,
+  submitForm,
+  formState,
+  handleInputChange,
+  handleSelectChange,
+}) {
   return (
     <div className="c-sign-up-form">
       <Card>
@@ -34,10 +41,15 @@ function SignUp({ onClickCheckbox, submitForm, formState, handleInputChange }) {
           value={formState.dob}
           placeholder={moment().format("DD/MM/YY")}
         />
-        <FormInput
+
+        <InputWithSelect
           placeholder="Gender"
-          handleOnChange={(e) => handleInputChange("gender", e)}
-          value={formState.gender}
+          options={[
+            { value: "Male", label: "Male" },
+            { value: "Female", label: "Female" },
+            { value: "Prefer Not To Specify", label: "Prefer Not To Specify" },
+          ]}
+          onSelectOption={handleSelectChange}
         />
         <FormInput
           placeholder="Email"

@@ -1,0 +1,16 @@
+.c-date-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #a2a2a2;
+  justify-content: space-between;
+  &__prefix {
+    color: #a2a2a2;
+    margin-top: 28px;
+    margin-bottom: 0;
+  }
+  &__input {
+    border: 0;
+    width: 39%;
+  }
+}
