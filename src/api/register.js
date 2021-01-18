@@ -11,6 +11,7 @@ export const registerApi = {
       gender,
       email,
       trackAndTrace,
+      password
     } = userDetails.payload;
     return axios({
       url: `${config.baseUrl}/contact/register`,
@@ -24,15 +25,16 @@ export const registerApi = {
         email,
         trackAndTrace,
         organisationId: config.organisationId,
+        password
       },
     });
   },
-  authenticateUser: (userName) => {
+  authenticateUser: (email, password) => {
     axios({
       url: `${config.baseUrl}/user/authenticate`,
       method: "POST",
       headers: { api_key: `${config.apiKey}` },
-      data: { name: "callum@gmail.com", password: "password123" },
+      data: { name: email, password: password },
     });
   },
   getOptInUsers: (externalId, token) => {

@@ -1,13 +1,10 @@
-import React from 'react'
+import React from "react";
 
-import './Card.scss'
+import "./Card.scss";
 
 function Card(props) {
-    return (
-        <div className="c-card">
-            {props.children}
-        </div>
-    )
+  const classes = `c-card ${props.className}`
+  return <div className={classes}>{props.children}</div>;
 }
 
-export default Card
+export default Card;

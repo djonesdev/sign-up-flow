@@ -6,13 +6,14 @@ import { selectUserInfo } from "../../redux/selectors";
 
 import Confirmation from "./Confirmation";
 
-export const ConfirmationContainer = ({ isAuthenticated, autheticateUser }) => {
+export const ConfirmationContainer = ({ state, userInfo, autheticateUser }) => {
   const history = useHistory();
 
   useEffect(() => {
-    // if(isAuthenticated) {
+    console.log(state)
+    if(userInfo.isAuthenticated) {
         autheticateUser()
-    // }
+    }
   }, [autheticateUser]);
 
   const onPressContinue = () => {
@@ -23,7 +24,8 @@ export const ConfirmationContainer = ({ isAuthenticated, autheticateUser }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: selectUserInfo(state),
+  userInfo: selectUserInfo(state),
+  state
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,4 +1,17 @@
 .c-homepage {
+  display: flex;
+  background-color: #e5e5e5;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+  &__title {
+    margin: 15px;
+  }
+  &__card {
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.14);
+    border-radius: 5.8px;
+    height: 85vh;
+  }
   &__table-header {
     width: 33%;
     text-align: left;
@@ -8,6 +21,101 @@
       width: 33%;
     }
     text-align: left;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
+  }
+  &__mobile-card-container {
+    margin: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+  }
+  &__card-title {
+    font-weight: bold;
+  }
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    @media (min-width: 1281px) {
+      height: 100vh;
+    }  
+  }
+  &__side-bar {
+    width: 100vw;
+    height: 20vh;
+    display: none;
+    @media (min-width: 1281px) {
+      height: 100vh;
+      width: 15vw;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      background: #ffffff;
+      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.14);
+    }
+  }
+  &__side-bar-logo {
+    position: absolute;
+    top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  &__side-bar-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #c4c4c4;
+    text-align: center;
+  }
+  &__side-bar-link {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 17px;
+    color: #c4c4c4;
+    margin: 5px;
+    text-decoration: none;
+    &:focus,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+    }
+    @media only screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  &__mobile-footer {
+    height: 25vh;
+    width: 100vw;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: white;
+  }
+  &__mobile-footer-logo {
+    width: 150px;
+    margin: auto;
+  }
+  &__mobile-footer-bottom {
+    margin: auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 17px;
+    color: #c4c4c4;
+    margin-top: 5px;
+    text-decoration: none;
+    &:focus,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+    }
   }
 }

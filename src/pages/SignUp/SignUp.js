@@ -36,21 +36,25 @@ function SignUp({
           handleOnChange={(e) => handleInputChange("surname", e)}
           value={formState.surname}
         />
-        <DateInput
-          onChange={(e) => handleInputChange("dob", e)}
-          value={formState.dob}
-          placeholder={moment().format("DD/MM/YY")}
-        />
-
-        <InputWithSelect
-          placeholder="Gender"
-          options={[
-            { value: "Male", label: "Male" },
-            { value: "Female", label: "Female" },
-            { value: "Prefer Not To Specify", label: "Prefer Not To Specify" },
-          ]}
-          onSelectOption={handleSelectChange}
-        />
+        <div className="c-sign-up-form__select-fields">
+          <DateInput
+            onChange={(e) => handleInputChange("dob", e)}
+            value={formState.dob}
+            placeholder={moment().format("DD/MM/YY")}
+          />
+          <InputWithSelect
+            placeholder="Gender"
+            options={[
+              { value: "Male", label: "Male" },
+              { value: "Female", label: "Female" },
+              {
+                value: "Prefer Not To Specify",
+                label: "Prefer Not To Specify",
+              },
+            ]}
+            onSelectOption={handleSelectChange}
+          />
+        </div>
         <FormInput
           placeholder="Email"
           handleOnChange={(e) => handleInputChange("email", e)}
@@ -75,10 +79,10 @@ function SignUp({
           <Button
             type="primary"
             disabled={
-              !formState.firstName &&
-              !formState.surname &&
-              !formState.email &&
-              formState.gender
+              !formState.firstName ||
+              !formState.surname ||
+              !formState.email ||
+              !formState.gender
             }
             label="Save"
             onClick={submitForm}

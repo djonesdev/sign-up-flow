@@ -1,13 +1,22 @@
 .c-sign-up-form {
   overflow: hidden;
   background-image: url("../../assets/backgrounds/unaroBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: yellow;
   display: flex;
   justify-content: center;
   padding: 20px;
+  @media (min-width: 1281px) {
+    height: 100vh;   
+  }
   &__logo {
     width: 70%;
     align-self: center;
+    @media (min-width: 1281px) {
+      width: 23%;   
+    }
   }
   &__subtitle {
     font-family: Roboto;
@@ -27,6 +36,11 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 18px;
+  }
+  &__select-fields {
+    @media (min-width: 1281px) {
+      display: flex;
+    }
   }
   &__nomination-container {
     margin: 24px;

@@ -17,7 +17,7 @@ function Confirmation({ onPressContinue }) {
               className="c-confirmation__tick"
               alt="confirmation tick"
               src={ConfirmationTick}
-            ></img>
+             />
           </div>
           <img
             alt="onaro logo"

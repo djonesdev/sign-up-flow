@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { registerUser } from "../../redux/actions";
+import { selectUserInfo } from "../../redux/selectors";
 import SignUp from "./SignUp";
 
-function SignUpContainer({ registerUser }) {
+function SignUpContainer({ registerUser, userInfo, state }) {
   const history = useHistory();
   const [formState, setFormState] = useState({
     firstName: "",
@@ -13,8 +14,15 @@ function SignUpContainer({ registerUser }) {
     dob: "",
     gender: "",
     email: "",
-    trackAndTrace: false
+    trackAndTrace: false, 
+    password: 'Password123'
   });
+
+  useEffect(() => { 
+    if(userInfo.isAuthenticated) {
+      history.push("/Confirmation");
+    }
+  }, [userInfo, history])
 
   const handleInputChange = (inputName, e) => {
     setFormState({ ...formState, [inputName]: e.target.value });
@@ -31,7 +39,7 @@ function SignUpContainer({ registerUser }) {
 
   const submitForm = () => {
     registerUser(formState);
-    history.push("/Confirmation");
+    console.log(userInfo.isAuthenticated, 'userInfo')
   };
 
   return (
@@ -46,7 +54,7 @@ function SignUpContainer({ registerUser }) {
 }
 
 const mapStateToProps = state => ({
-  value: state,
+  userInfo: selectUserInfo(state),
 });
 
 const mapDispatchToProps = dispatch => ({
