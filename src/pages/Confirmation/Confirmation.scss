@@ -34,6 +34,9 @@
     width: 70%;
     align-self: center;
     margin-top: 46px;
+    @media (min-width: 1281px) {
+      width: 30%;
+    }
   }
   &__button-container {
       display: flex; 
